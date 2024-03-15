@@ -1,6 +1,9 @@
+import { Filter } from "../../components/filter";
 
 export const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <div className="max-w-7xl m-auto ">
+      <Filter />
+    </div>
+  );
+};
