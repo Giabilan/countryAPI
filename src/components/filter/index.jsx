@@ -31,14 +31,13 @@ export const Filter = ({
               <button
                 key={index}
                 onClick={() => handleClose(region)}
-                className={`flex justify-start items-center w-full py-2 px-7
-                                ${
-                                  region === selectedRegion
-                                    ? "bg-indigo-400 text-white "
-                                    : "hover:bg-gray-200 hover:rounded-lg "
-                                } ${
-                  region === selectedRegion && "rounded-lg"
-                } `}
+                className={`flex justify-start items-center w-full py-2 px-7 rounded-lg
+                 ${
+                   region === selectedRegion
+                     ? "bg-indigo-400 text-white "
+                     : "hover:bg-gray-200 "
+                 }
+                 ${region === selectedRegion && "rounded-lg"} `}
               >
                 {region}
               </button>
@@ -55,7 +54,7 @@ export const Filter = ({
 };
 
 Filter.propTypes = {
-  selectedRegion: PropTypes.bool,
+  selectedRegion: PropTypes.string,
   setSelectedRegion: PropTypes.func,
   setFilterIsOpen: PropTypes.func,
   setSearchValue: PropTypes.func,

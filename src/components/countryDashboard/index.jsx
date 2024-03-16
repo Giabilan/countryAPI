@@ -3,39 +3,38 @@ import { Filter } from "../filter";
 import { Searchbar } from "../searchbar";
 import { filterCountries } from "../../utils/filter";
 import { Country } from "../country";
-import { handleGetData } from "../../handleGetData";
+import { handleGetData } from "../../API";
 
 export const CountryDashboard = () => {
   const [countries, setCountries] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [filterIsOpen, setFilterIsOpen] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState(null);
+  const [error, setError] = useState(false);
 
-  const regions = [...new Set(countries.map((country) => country.region))];
-
-  const getCountry = async () => {
+  const getCountries = async () => {
     try {
       const response = await handleGetData();
       response.sort((a, b) => a.name.localeCompare(b.name));
       setCountries(response);
     } catch (error) {
       console.log(error);
+      setError("Refresh the page and retry.");
     }
   };
 
   useEffect(() => {
-    getCountry();
+    getCountries();
   }, []);
+
+  const allRegions = countries.map((country) => country.region);
+  const regions = [...new Set(allRegions)];
 
   const filteredCountries = filterCountries(
     countries,
     searchValue,
     selectedRegion
   );
-
-  useEffect(() => {
-    getCountry();
-  }, []);
 
   return (
     <>
@@ -50,7 +49,7 @@ export const CountryDashboard = () => {
           regions={regions}
         />
       </div>
-      {filteredCountries && <Country data={filteredCountries} />}
+      {filteredCountries && <Country data={filteredCountries} error={error} />}
     </>
   );
 };

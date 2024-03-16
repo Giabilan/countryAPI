@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-export const Country = ({ data }) => {
+export const Country = ({ data, error }) => {
   return (
     <div className=" flex flex-wrap md:grid grid-cols-4 gap-6 py-6 max-w-7xl m-auto  ">
       {data.length > 0 ? (
@@ -36,9 +36,13 @@ export const Country = ({ data }) => {
           ))}
         </>
       ) : (
-        <p className="text-xl ">
-          the country you are looking for does not exist
-        </p>
+        <div className="text-xl ">
+          {error ? (
+            <p> {error} </p>
+          ) : (
+            <p>the country you are looking for does not exist</p>
+          )}
+        </div>
       )}
     </div>
   );
@@ -46,4 +50,5 @@ export const Country = ({ data }) => {
 
 Country.propTypes = {
   data: PropTypes.array.isRequired,
+  error: PropTypes.bool.isRequired,
 };
