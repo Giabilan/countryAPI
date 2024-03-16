@@ -19,25 +19,24 @@ export const Filter = ({
     <div className="flex justify-center ">
       <button
         onClick={() => setFilterIsOpen(!filterIsOpen)}
-        className=" relative z-50 flex justify-end items-center gap-2 shadow-lg p-4 bg-white rounded-lg "
+        className=" relative z-50 flex justify-end items-center gap-2 shadow-lg p-4 bg-white dark:bg-neutral-700 text-black dark:text-white rounded-lg "
       >
         <p> {selectedRegion ? selectedRegion : "Filter by Region"} </p>
         <ChevronDown size={20} />
       </button>
       {filterIsOpen && (
         <>
-          <div className=" absolute z-50 mt-16  bg-white shadow-lg rounded-lg ">
+          <div className=" absolute z-50 mt-16  bg-white dark:bg-neutral-700 text-black dark:text-white shadow-lg rounded-lg ">
             {regions.map((region, index) => (
               <button
                 key={index}
                 onClick={() => handleClose(region)}
-                className={`flex justify-start items-center w-full py-2 px-7 rounded-lg
+                className={`flex justify-start items-center w-full py-2 px-7
                  ${
                    region === selectedRegion
                      ? "bg-indigo-400 text-white "
-                     : "hover:bg-gray-200 "
-                 }
-                 ${region === selectedRegion && "rounded-lg"} `}
+                     : "hover:bg-gray-200 dark:hover:bg-neutral-600 dark:hover:text-neutral-300 "
+                 } `}
               >
                 {region}
               </button>

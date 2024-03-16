@@ -13,7 +13,7 @@ export const Searchbar = ({ searchValue, setSearchValue }) => {
     <form onSubmit={handleSubmit} className="flex items-center ">
       <label
         htmlFor="searchValue"
-        className="p-2 bg-white rounded-l-lg border-y border-l "
+        className="p-2 bg-white dark:bg-neutral-700 text-black dark:text-white rounded-l-lg border-y border-l "
       >
         <Search />
       </label>
@@ -22,7 +22,7 @@ export const Searchbar = ({ searchValue, setSearchValue }) => {
         name="searchValue"
         id="searchValue"
         placeholder="Search a Country or a Capital"
-        className="bg-white rounded-r-lg pl-2 py-2 w-96 border-y border-r outline-none "
+        className="bg-white dark:bg-neutral-700 text-black dark:text-white rounded-r-lg pl-2 py-2 w-96 border-y border-r outline-none "
         value={searchValue}
         onChange={(e) => handleSearchChange(e.target.value)}
       />

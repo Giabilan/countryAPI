@@ -1,11 +1,14 @@
 import PropTypes from "prop-types";
 export const Country = ({ data, error }) => {
   return (
-    <div className=" flex flex-wrap md:grid grid-cols-4 gap-6 py-6 max-w-7xl m-auto  ">
+    <div className=" flex flex-wrap md:grid grid-cols-4 gap-6 py-6 ">
       {data.length > 0 ? (
         <>
           {data.map((country, index) => (
-            <div className="bg-white shadow-lg" key={index}>
+            <div
+              className="bg-white dark:bg-neutral-700 text-black dark:text-white shadow-lg"
+              key={index}
+            >
               <img
                 src={country.flags.svg ? country.flags.svg : country.flags.png}
                 alt={country.name}
@@ -18,15 +21,19 @@ export const Country = ({ data, error }) => {
                 <div className=" text-sm">
                   <div className="flex gap-1">
                     <p className="font-medium capitalize ">capital:</p>
-                    <p className="text-gray-700"> {country.capital}</p>
+                    <p className="text-black dark:text-white">
+                      {country.capital}
+                    </p>
                   </div>
                   <div className="flex gap-1">
                     <p className="font-medium capitalize ">region:</p>
-                    <p className="text-gray-700"> {country.region}</p>
+                    <p className="text-black dark:text-white">
+                      {country.region}
+                    </p>
                   </div>
                   <div className="flex gap-1">
                     <p className="font-medium capitalize ">population:</p>
-                    <p className="text-gray-700">
+                    <p className="text-black dark:text-white">
                       {country.population.toLocaleString("fr-FR")}
                     </p>
                   </div>
