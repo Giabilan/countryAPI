@@ -1,9 +1,9 @@
-import { Filter } from "../../components/filter";
+import { CountryDashboard } from "../../components/countryDashboard";
 
 export const Home = () => {
   return (
     <div className="max-w-7xl m-auto ">
-      <Filter />
+      <CountryDashboard />
     </div>
   );
 };
