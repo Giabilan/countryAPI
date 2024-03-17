@@ -18,24 +18,18 @@ export const Country = ({ data, error }) => {
                 <p className="capitalize font-bold text-md sm:text-1xl ">
                   {country.name}
                 </p>
-                <div className=" text-sm">
+                <div className=" text-sm text-black dark:text-white ">
                   <div className="flex gap-1">
                     <p className="font-medium capitalize ">capital:</p>
-                    <p className="text-black dark:text-white">
-                      {country.capital}
-                    </p>
+                    <p>{country.capital}</p>
                   </div>
                   <div className="flex gap-1">
                     <p className="font-medium capitalize ">region:</p>
-                    <p className="text-black dark:text-white">
-                      {country.region}
-                    </p>
+                    <p>{country.region}</p>
                   </div>
                   <div className="flex gap-1">
                     <p className="font-medium capitalize ">population:</p>
-                    <p className="text-black dark:text-white">
-                      {country.population.toLocaleString("fr-FR")}
-                    </p>
+                    <p>{country.population.toLocaleString("fr-FR")}</p>
                   </div>
                 </div>
               </div>

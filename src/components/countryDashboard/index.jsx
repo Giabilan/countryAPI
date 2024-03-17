@@ -4,16 +4,12 @@ import { Searchbar } from "../searchbar";
 import { filterCountries } from "../../utils/filter";
 import { Country } from "../country";
 import { handleGetData } from "../../API";
-import { useContext } from "react";
-import { DarkModeContext } from "../../layout";
 export const CountryDashboard = () => {
   const [countries, setCountries] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [filterIsOpen, setFilterIsOpen] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState(null);
   const [error, setError] = useState(false);
-
-  const { darkMode } = useContext(DarkModeContext);
 
   const getCountries = async () => {
     try {
@@ -40,11 +36,7 @@ export const CountryDashboard = () => {
   );
 
   return (
-    <div
-      className={`flex flex-col justify-between max-w-7xl m-auto py-4  ${
-        darkMode && "dark"
-      } `}
-    >
+    <div className="flex flex-col justify-between max-w-7xl m-auto py-4">
       <div className="flex justify-between ">
         <Searchbar searchValue={searchValue} setSearchValue={setSearchValue} />
         <Filter
