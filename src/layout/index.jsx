@@ -14,7 +14,9 @@ export const Layout = ({ children }) => {
   return (
     <div className={` ${darkMode && "dark"} `}>
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
-      <main className="bg-[#F5F5F5] dark:bg-neutral-800">{children}</main>
+      <main className="bg-[#F5F5F5] dark:bg-neutral-800 min-h-svh ">
+        {children}
+      </main>
       <Footer />
     </div>
   );
