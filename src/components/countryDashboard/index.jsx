@@ -36,8 +36,8 @@ export const CountryDashboard = () => {
   );
 
   return (
-    <div className="flex flex-col justify-between max-w-7xl m-auto py-4">
-      <div className="flex justify-between ">
+    <div className="flex flex-col justify-between max-w-7xl m-auto p-6">
+      <div className="flex flex-wrap justify-between ">
         <Searchbar searchValue={searchValue} setSearchValue={setSearchValue} />
         <Filter
           selectedRegion={selectedRegion}

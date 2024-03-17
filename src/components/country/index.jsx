@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 export const Country = ({ data, error }) => {
   return (
-    <div className=" flex flex-wrap md:grid grid-cols-4 gap-6 py-6 ">
+    <div className=" flex justify-center flex-wrap md:grid md:grid-cols-3 lg:grid-cols-4 gap-6 py-6 ">
       {data.length > 0 ? (
         <>
           {data.map((country, index) => (
@@ -37,7 +37,7 @@ export const Country = ({ data, error }) => {
           ))}
         </>
       ) : (
-        <div className="text-xl ">
+        <div className="text-xl text-black dark:text-white ">
           {error ? (
             <p> {error} </p>
           ) : (

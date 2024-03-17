@@ -22,7 +22,9 @@ export const Searchbar = ({ searchValue, setSearchValue }) => {
         name="searchValue"
         id="searchValue"
         placeholder="Search a Country or a Capital"
-        className="bg-white dark:bg-neutral-700 text-black dark:text-white rounded-r-lg pl-2 py-2 w-96 border-y border-r outline-none "
+        className="bg-white dark:bg-neutral-700 text-black dark:text-white rounded-r-lg pl-2 py-2 w-56 sm:w-96 border-y border-r outline-none
+
+        "
         value={searchValue}
         onChange={(e) => handleSearchChange(e.target.value)}
       />

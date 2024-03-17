@@ -1,4 +1,4 @@
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, SlidersHorizontal } from "lucide-react";
 import PropTypes from "prop-types";
 
 export const Filter = ({
@@ -16,22 +16,28 @@ export const Filter = ({
   };
 
   return (
-    <div className="flex justify-center ">
+    <div>
       <button
         onClick={() => setFilterIsOpen(!filterIsOpen)}
-        className=" relative z-50 flex justify-end items-center gap-2 shadow-lg p-4 bg-white dark:bg-neutral-700 text-black dark:text-white rounded-lg "
+        className=" flex justify-end items-center gap-2 shadow-lg p-3 sm:p-4 bg-white dark:bg-neutral-700 text-black dark:text-white rounded-lg "
       >
-        <p> {selectedRegion ? selectedRegion : "Filter by Region"} </p>
-        <ChevronDown size={20} />
+        <p className="md:flex hidden">
+          {selectedRegion ? selectedRegion : "Filter by Region"}
+        </p>
+        <p className="md:hidden flex text-sm ">
+          <SlidersHorizontal size={20} />
+        </p>
+
+        <ChevronDown size={20} className="md:flex hidden" />
       </button>
       {filterIsOpen && (
-        <>
-          <div className=" absolute z-50 mt-16  bg-white dark:bg-neutral-700 text-black dark:text-white shadow-lg rounded-lg ">
+        <div className="fixed inset-0 flex justify-center items-center ">
+          <div className=" fixed z-50 w-72 h-80 sm:w-96 sm:h-80 bg-white dark:bg-neutral-700 text-black dark:text-white shadow-lg rounded-lg ">
             {regions.map((region, index) => (
               <button
                 key={index}
                 onClick={() => handleClose(region)}
-                className={`flex justify-start items-center w-full py-2 px-7
+                className={` w-full py-2
                  ${
                    region === selectedRegion
                      ? "bg-indigo-400 text-white "
@@ -43,10 +49,10 @@ export const Filter = ({
             ))}
           </div>
           <div
-            className=" overlay fixed inset-0 "
+            className=" overlay fixed z-40 inset-0 cursor-pointer dark:bg-neutral-900 dark:bg-opacity-55 "
             onClick={() => setFilterIsOpen(false)}
           ></div>
-        </>
+        </div>
       )}
     </div>
   );
