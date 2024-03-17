@@ -4,6 +4,7 @@ import { Searchbar } from "../searchbar";
 import { filterCountries } from "../../utils/filter";
 import { Country } from "../country";
 import { handleGetData } from "../../API";
+import { FilterTag } from "../filterTag";
 export const CountryDashboard = () => {
   const [countries, setCountries] = useState([]);
   const [searchValue, setSearchValue] = useState("");
@@ -48,6 +49,11 @@ export const CountryDashboard = () => {
           regions={regions}
         />
       </div>
+      <FilterTag
+        selectedRegion={selectedRegion}
+        setSelectedRegion={setSelectedRegion}
+        setSearchValue={setSearchValue}
+      />
       {filteredCountries && <Country data={filteredCountries} error={error} />}
     </div>
   );
