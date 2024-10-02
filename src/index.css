@@ -15,3 +15,30 @@ html {
 * {
   @apply transition-colors duration-100;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.pagination li {
+  list-style: none;
+  margin: 0 5px;
+}
+
+.pagination li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.pagination li.active a {
+  color: #fff;
+  background-color: #818CF8;
+  border-radius: 8px;
+}
+
+.pagination li.disabled a {
+  color: #ccc;
+}

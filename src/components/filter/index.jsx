@@ -49,7 +49,7 @@ export const Filter = ({
             ))}
           </div>
           <div
-            className=" overlay fixed z-40 inset-0 cursor-pointer dark:bg-neutral-900 dark:bg-opacity-55 "
+            className=" overlay fixed z-40 inset-0 cursor-pointer bg-neutral-900 bg-opacity-55 "
             onClick={() => setFilterIsOpen(false)}
           ></div>
         </div>
